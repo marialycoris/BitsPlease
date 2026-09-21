@@ -1,0 +1,59 @@
+{
+  "/": {
+    "name": "Bits Please",
+    "title": "Bits Please — Free Networking Tools for IT Students",
+    "description": "Free IPv4 networking tools for IT and CS students: binary converter, IP and subnet calculator, custom subnet mask, subnet generator, and VLSM calculator with step-by-step explanations.",
+    "faq": []
+  },
+  "/binary-lab": {
+    "name": "Binary Lab",
+    "title": "Binary Lab — Binary to Decimal & Decimal to Binary Converter | Bits Please",
+    "description": "Convert decimal to 8-bit binary and binary to decimal, and see how each bit's place value adds up. A hands-on binary lab for learning IPv4 and subnet masks.",
+    "faq": [
+      { "q": "Why do IPv4 octets use 8 bits?", "a": "An IPv4 address is 32 bits long, split into four groups called octets. Each octet has 8 bits, so it can hold 2^8 = 256 different values, from 0 to 255." },
+      { "q": "How do I convert decimal to binary by hand?", "a": "Go through the place values 128, 64, 32, 16, 8, 4, 2, 1. If the place value fits into what is left of your number, write a 1 and subtract it. Otherwise write a 0. For 192: 128 fits (64 left), 64 fits (0 left), and every place after that is 0, giving 11000000." },
+      { "q": "Why is 255 the largest octet value?", "a": "When all eight bits are 1, the total is 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255." }
+    ]
+  },
+  "/ip-calculator": {
+    "name": "IP Calculator",
+    "title": "IP Calculator — IPv4 Subnet Calculator | Bits Please",
+    "description": "Calculate IPv4 network address, broadcast address, subnet mask, usable hosts, wildcard mask, and CIDR with an easy-to-understand breakdown.",
+    "faq": [
+      { "q": "How do I find the network address of an IP address?", "a": "Write the IP address and the subnet mask in binary and apply a bitwise AND. Every bit where the mask has a 1 keeps the IP's bit, and every bit where the mask has a 0 becomes 0. The result is the network address." },
+      { "q": "How do I find the broadcast address?", "a": "Keep the network bits and set every host bit to 1. Equivalently, add the total number of addresses in the subnet to the network address and subtract 1." },
+      { "q": "How many usable hosts does a subnet have?", "a": "For most subnets, usable hosts = 2^h - 2, where h is the number of host bits. One address is the network address and one is the broadcast address. A /31 is a special case with 2 usable addresses on point-to-point links, and a /32 is a single host." },
+      { "q": "What is a wildcard mask?", "a": "A wildcard mask is the inverse of the subnet mask. Where the subnet mask has 1s, the wildcard has 0s, and the other way around. It is commonly used in router access lists and OSPF network statements." }
+    ]
+  },
+  "/custom-subnet": {
+    "name": "Custom Subnet Calculator",
+    "title": "Custom Subnet Calculator — Calculate Subnet Mask | Bits Please",
+    "description": "Find the subnet mask you need from the number of subnets or hosts per subnet. See borrowed bits, host bits, and the calculation steps with your own numbers.",
+    "faq": [
+      { "q": "How do I calculate a subnet mask from a number of subnets?", "a": "Find the smallest b where 2^b is at least the number of subnets you need. Then add b to the default prefix of the address class. For 4 subnets on a Class C network: 2^2 = 4, so borrow 2 bits and the prefix becomes /24 + 2 = /26." },
+      { "q": "How do I calculate a subnet mask from a number of hosts?", "a": "Find the smallest h where 2^h - 2 is at least the number of hosts you need. The prefix is then 32 - h. For 50 hosts: 2^5 - 2 = 30 is too small, 2^6 - 2 = 62 is enough, so the prefix is /26." },
+      { "q": "Should I subtract 2 from the number of subnets?", "a": "Not on modern equipment. The old rule of discarding the all-zeros and all-ones subnets is a historical convention. Today, with classless routing, every subnet is usable, so the number of subnets is simply 2^b." }
+    ]
+  },
+  "/subnet-generator": {
+    "name": "Subnet Generator",
+    "title": "Subnet Generator — Generate IPv4 Subnets | Bits Please",
+    "description": "Generate equal-sized IPv4 subnets from a network and CIDR. See subnet masks, host ranges, broadcast addresses, and usable hosts.",
+    "faq": [
+      { "q": "How do I divide a network into equal subnets?", "a": "Borrow enough host bits so that 2^b is at least the number of subnets you need. The new prefix is the original prefix plus b. Each subnet then starts one block size after the previous one." },
+      { "q": "What is a block size?", "a": "The block size is the number of addresses in each subnet, 2^(32 - prefix). It is also the step between one subnet's network address and the next. For /26 the block size is 64, so subnets start at .0, .64, .128, and .192." },
+      { "q": "What if I need a number of subnets that is not a power of two?", "a": "Subnetting works in powers of two. If you ask for 5 subnets, you borrow 3 bits and get 8 subnets. Five of them can be used and three are spare for future growth." }
+    ]
+  },
+  "/vlsm-calculator": {
+    "name": "VLSM Calculator",
+    "title": "VLSM Calculator — Variable Length Subnet Mask Calculator | Bits Please",
+    "description": "Calculate VLSM subnet allocations based on different host requirements. Learn how variable-length subnetting is calculated step by step.",
+    "faq": [
+      { "q": "What is VLSM?", "a": "Variable Length Subnet Masking lets you use different prefix lengths inside the same network, so each subnet can be sized to the number of hosts it really needs instead of forcing every subnet to be the same size." },
+      { "q": "Why sort from largest to smallest?", "a": "Allocating the largest subnet first keeps every block aligned on its natural boundary and avoids leaving small unusable gaps. Smaller subnets then fill the space that remains." },
+      { "q": "What happens if the requirements do not fit?", "a": "Each requirement is rounded up to a power of two. If the rounded sizes add up to more addresses than the base network has, the calculator tells you which subnet did not fit so you can use a larger base network or reduce the host counts." }
+    ]
+  }
+}

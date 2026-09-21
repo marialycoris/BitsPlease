@@ -1,0 +1,35 @@
+@import '@fontsource/ibm-plex-sans/latin-400.css';
+@import '@fontsource/ibm-plex-sans/latin-500.css';
+@import '@fontsource/ibm-plex-sans/latin-600.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-page font-sans text-navy antialiased; }
+  h1, h2, h3 { @apply text-navy; text-wrap: balance; }
+  a { @apply text-brand; }
+  :focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }
+  header :focus-visible, footer :focus-visible { outline-color: #DBEAFE; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .card { @apply rounded-md border border-slate-200 bg-white shadow-sm; }
+  .input { @apply block w-full rounded border border-slate-300 bg-white px-3 py-2 font-mono text-base text-navy placeholder:text-slate-400; }
+  .input[aria-invalid='true'] { @apply border-err; }
+  .btn { @apply inline-flex items-center justify-center rounded bg-brand px-4 py-2 text-base font-medium text-white transition-colors hover:bg-blue-700; }
+  .btn-quiet { @apply inline-flex items-center justify-center rounded border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-navy transition-colors hover:bg-page; }
+  .prose-bp p { @apply mb-4 max-w-[68ch] leading-7 text-slate-700; }
+  .prose-bp h2 { @apply mb-3 mt-10 text-2xl font-semibold; }
+  .prose-bp h3 { @apply mb-2 mt-6 text-lg font-semibold; }
+  .prose-bp ul { @apply mb-4 max-w-[68ch] list-disc space-y-1 pl-6 leading-7 text-slate-700; }
+  .prose-bp code, .code-inline { @apply rounded bg-tint/60 px-1 py-0.5 font-mono text-[0.9em] text-navy; }
+}
