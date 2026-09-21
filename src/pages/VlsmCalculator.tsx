@@ -83,8 +83,8 @@ export default function VlsmCalculator() {
               <TableWrap caption="VLSM allocation results, largest subnet first">
                 <thead>
                   <tr>
-                    {['Department', 'Required hosts', 'Allocated hosts', 'Network', 'CIDR', 'Subnet mask', 'First host', 'Last host', 'Broadcast', 'Unused hosts'].map((h, i) => (
-                      <th key={h} scope="col" className={`${th} ${i === 1 || i === 2 || i === 9 ? 'text-right' : ''}`}>{h}</th>
+                    {['Department', 'Required hosts', 'Allocated hosts', 'Network', 'CIDR', 'Subnet mask', 'First host', 'Last host', 'Broadcast', 'Unused hosts'].map((h) => (
+                      <th key={h} scope="col" className={th}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -92,11 +92,11 @@ export default function VlsmCalculator() {
                   {r.allocations.map((a) => (
                     <tr key={a.name + a.network}>
                       <th scope="row" className={`${td} font-sans font-medium`}>{a.name}</th>
-                      <td className={`${td} text-right`}>{fmt(a.requiredHosts)}</td>
-                      <td className={`${td} text-right`}>{fmt(a.allocatedHosts)}</td>
+                      <td className={td}>{fmt(a.requiredHosts)}</td>
+                      <td className={td}>{fmt(a.allocatedHosts)}</td>
                       <td className={td}>{a.network}</td><td className={td}>/{a.prefix}</td><td className={td}>{a.mask}</td>
                       <td className={td}>{a.firstHost}</td><td className={td}>{a.lastHost}</td><td className={td}>{a.broadcast}</td>
-                      <td className={`${td} text-right`}>{fmt(a.unusedHosts)}</td>
+                      <td className={td}>{fmt(a.unusedHosts)}</td>
                     </tr>
                   ))}
                 </tbody>

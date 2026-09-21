@@ -78,7 +78,7 @@ function BitMap({ r, sel, onSel }: { r: GeneratorResult; sel: number; onSel: (n:
   const places = [128, 64, 32, 16, 8, 4, 2, 1];
   return (
     <ResultCard title="Binary subnet bits">
-      <p className="mb-4 max-w-[68ch] text-sm text-slate-700">
+      <p className="mb-4 text-sm text-slate-700">
         Each cell is one bit of the network address, with its place value above it. The heavy vertical lines mark where the original network ends and where the host bits begin. The blue cells are the bits borrowed to create subnets, and they are the only bits that change from one subnet to the next.
       </p>
       <div className="mb-4 max-w-[12rem]">

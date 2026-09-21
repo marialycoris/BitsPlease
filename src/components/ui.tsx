@@ -10,7 +10,7 @@ export function PageShell({ path, h1, lead, children }: { path: string; h1: stri
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-8 md:py-10">
           <h1 className="text-3xl font-semibold md:text-4xl">{h1}</h1>
-          <p className="mt-3 max-w-[68ch] text-lg leading-7 text-slate-600">{lead}</p>
+          <p className="mt-3 text-justify text-lg leading-7 text-slate-600">{lead}</p>
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-4 py-8">{children}</div>
@@ -99,8 +99,8 @@ export function TableWrap({ caption, children }: { caption: string; children: Re
     </div>
   );
 }
-export const th = 'border-b border-slate-200 bg-page px-3 py-2 font-medium text-slate-700 whitespace-nowrap';
-export const td = 'border-b border-slate-100 px-3 py-2 font-mono whitespace-nowrap';
+export const th = 'border-b border-slate-200 bg-page px-3 py-2 text-center font-medium text-slate-700 whitespace-nowrap';
+export const td = 'border-b border-slate-100 px-3 py-2 text-center font-mono whitespace-nowrap';
 
 export function Faq({ path }: { path: string }) {
   const faq = PAGES[path]?.faq ?? [];
@@ -112,7 +112,7 @@ export function Faq({ path }: { path: string }) {
         {faq.map((f) => (
           <div key={f.q}>
             <h3 className="text-lg font-semibold">{f.q}</h3>
-            <p className="mt-1 max-w-[68ch] leading-7 text-slate-700">{f.a}</p>
+            <p className="mt-1 text-justify leading-7 text-slate-700">{f.a}</p>
           </div>
         ))}
       </div>
@@ -123,7 +123,7 @@ export function Faq({ path }: { path: string }) {
 export function NextStep({ to, label, children }: { to: string; label: string; children: ReactNode }) {
   return (
     <aside className="mt-10 rounded-md border border-blue-200 bg-tint px-5 py-4" aria-label="Next step">
-      <p className="max-w-[68ch] text-navy">
+      <p className="text-justify text-navy">
         {children} <Link to={to} className="font-medium underline">{label}</Link>.
       </p>
     </aside>

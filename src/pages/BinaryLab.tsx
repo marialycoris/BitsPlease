@@ -77,7 +77,7 @@ export default function BinaryLab() {
 
       <section className="card mt-6 p-5" aria-labelledby="board-h">
         <h2 id="board-h" className="mb-1 text-xl font-semibold">Place values</h2>
-        <p className="mb-4 max-w-[68ch] text-slate-600">Each position is a power of two, doubling from right to left. A 1 means “add this value”. Select a bit to switch it.</p>
+        <p className="mb-4 text-slate-600">Each position is a power of two, doubling from right to left. A 1 means “add this value”. Select a bit to switch it.</p>
         <BitBoard value={value} onChange={sync} />
       </section>
 

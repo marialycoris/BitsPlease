@@ -43,7 +43,7 @@ export default function Home() {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <section aria-labelledby="tools-h">
           <h2 id="tools-h" className="text-2xl font-semibold">Five tools, one learning path</h2>
-          <p className="mt-2 max-w-[68ch] text-slate-600">
+          <p className="mt-2 text-slate-600">
             Start with the basics: binary, then IP addressing, then subnet masks, subnetting, and finally VLSM. Each tool builds on the one before it.
           </p>
           <ol className="mt-6 grid gap-0 border-l-2 border-tint pl-0">
