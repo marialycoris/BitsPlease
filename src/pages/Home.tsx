@@ -6,7 +6,7 @@ import { Seo } from '../seo/Seo';
 import { TOOLS } from '../seo/site';
 
 const REASONS = [
-  ['Free to use', 'No paywall, no ads between you and the answer.'],
+  ['Free to use', 'No paywall between you and the answer.'],
   ['No account required', 'Open a page and start calculating.'],
   ['Runs in your browser', 'Your inputs never leave your device. There is no backend.'],
   ['Step-by-step explanations', 'Every result shows the formula with your own numbers.'],
