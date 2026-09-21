@@ -12,20 +12,6 @@ npm run dev      # local dev server
 npm test         # networking unit tests (vitest)
 ```
 
-## Build and deploy
-
-```bash
-SITE_URL=https://your-real-domain.com VITE_SITE_URL=https://your-real-domain.com npm run build
-```
-
-Set both variables to your production domain. `VITE_SITE_URL` is used by the app at runtime (canonical, Open Graph, JSON-LD) and `SITE_URL` by the post-build step, which writes:
-
-- a separate `index.html` per route with its own title, description, canonical, Open Graph/Twitter tags, and JSON-LD
-- `sitemap.xml` and `robots.txt` using your domain
-- `404.html` (noindex)
-
-Upload `dist/` to Vercel, Netlify, GitHub Pages, or any static host. On Vercel/Netlify set the two variables in project settings, build command `npm run build`, output directory `dist`.
-
 ## Project layout
 
 - `src/lib/network.ts`: all IPv4 logic (framework-free, unit-tested)
